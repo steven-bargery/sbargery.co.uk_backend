@@ -15,4 +15,3 @@ jobs:
         aws_region: ${{ secrets.AWS_REGION }}
         function_name: get-visitors
         source: get_visitors.py
-        dry_run: true
