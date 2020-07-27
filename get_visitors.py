@@ -3,8 +3,7 @@ import boto3
 
 def lambda_handler(event, context):
     # Get the service resource.
-    dynamodb = boto3.resource('dynamodb')
-    
+    dynamodb = boto3.resource('dynamodb' region_name='us-east-1')
     # Get the table
     table = dynamodb.Table('sbargery_visitors')
 
