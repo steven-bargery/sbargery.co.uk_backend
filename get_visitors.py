@@ -3,12 +3,7 @@ import boto3
 
 def lambda_handler(event, context):
     # Get the service resource.
-    session = boto3.Session(
-        aws_access_key_id=${{ secrets.AWS_ACCESS_KEY_ID }},
-        aws_secret_access_key=${{ secrets.AWS_SECRET_ACCESS_KEY }},
-        region_name = ${{ secrets.AWS_REGION }}
-    )
-    dynamodb = session.resource('dynamodb')
+    dynamodb = boto3.resource('dynamodb')
     # Get the table
     table = dynamodb.Table('sbargery_visitors')
 
