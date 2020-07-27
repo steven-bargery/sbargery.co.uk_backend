@@ -4,6 +4,7 @@ import boto3
 def lambda_handler(event, context):
     # Get the service resource.
     dynamodb = boto3.resource('dynamodb')
+
     # Get the table
     table = dynamodb.Table('sbargery_visitors')
 
