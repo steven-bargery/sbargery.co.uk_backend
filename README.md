@@ -2,7 +2,7 @@
 
 This repository contains two AWS Lambda functions, written in Python, that GET and POST data from a DynamoDB table for my website [sbargery.co.uk](https://www.sbargery.co.uk).
 
-These functions were created to display an up-to-date count of the number of visitors to my website.
+These functions were created to display an up-to-date count on the number of visitors to my website.
 
 Once pushed to Github, using Github Actions, both functions are tested using pytest with their corresponding test_*.py files and are then deployed to AWS Lambda.
 
