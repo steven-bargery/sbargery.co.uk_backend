@@ -1,5 +1,8 @@
 name: deploy get_visitors to lambda
-on: [push]
+on:
+  push:
+    paths:
+      - 'get_visitors.py'
 jobs:
 
   deploy:
