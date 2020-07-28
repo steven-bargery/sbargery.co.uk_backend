@@ -34,7 +34,7 @@ jobs:
         aws-region: ${{ secrets.AWS_REGION }}
     - name: Test with pytest
       run: |
-        pytest
+        pytest test_create_visitor.py
     - name: AWS Lambda Deploy
       uses: appleboy/lambda-action@master
       with:
