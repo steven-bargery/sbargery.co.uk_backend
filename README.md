@@ -4,7 +4,7 @@ This repository contains two AWS Lambda functions, written in Python, that GET a
 
 These functions were created to display an up-to-date count on the number of visitors to my website.
 
-Once pushed to Github, using Github Actions, both functions are tested using pytest with their corresponding test_*.py files and are then deployed to AWS Lambda.
+Once pushed to GitHub, using GitHub Actions and workflow .yml files, both functions are unit tested using pytest with their corresponding test_*.py files and are then deployed to AWS Lambda.
 
 ## create_visitor.py
 
