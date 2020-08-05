@@ -3,14 +3,15 @@ import boto3
 import uuid
 import datetime
 
+# Get the service resource.
+dynamodb = boto3.resource('dynamodb')
+
+# Get the tables
+visitor_table = dynamodb.Table('sbargery_visitors')
+count_table = dynamodb.Table('sbargery_visitor_count')
+
 
 def lambda_handler(event, context):
-    # Get the service resource.
-    dynamodb = boto3.resource('dynamodb')
-
-    # Get the table
-    table = dynamodb.Table('sbargery_visitors')
-
     # Create random ID
     visitor_id = uuid.uuid4()
 
@@ -28,11 +29,25 @@ def lambda_handler(event, context):
         }
 
     # Put item
-    table.put_item(
+    visitor_table.put_item(
         Item={
             'visitor_id': str(visitor_id),
             'date': datetimenow.isoformat(),
             'ip': source_ip
+        }
+    )
+
+    # Get current count
+    v_info = count_table.get_item(Key={'visitor_key': "count"})
+    v_count = int(v_info['Item']['visitor_count']) + 1
+
+    # Update count item
+    count_table.update_item(
+        Key={'visitor_key': "count"},
+        UpdateExpression='SET visitor_count = :val1, last_update = :val2',
+        ExpressionAttributeValues={
+            ':val1': v_count,
+            ':val2': datetimenow.isoformat()
         }
     )
 

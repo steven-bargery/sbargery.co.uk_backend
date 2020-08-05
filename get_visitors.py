@@ -19,5 +19,5 @@ def lambda_handler(event, context):
 
     return {
         'statusCode': 200,
-        'body': int(visitor_count['Item']['value'])
+        'body': int(visitor_count['Item']['visitor_count'])
     }
