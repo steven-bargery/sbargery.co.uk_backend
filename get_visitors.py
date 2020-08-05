@@ -1,13 +1,13 @@
 import json
 import boto3
 
+# Get the service resource.
+dynamodb = boto3.resource('dynamodb')
+
+# Get the table
+table = dynamodb.Table('sbargery_visitors')
+
 def lambda_handler(event, context):
-    # Get the service resource.
-    dynamodb = boto3.resource('dynamodb')
-
-    # Get the table
-    table = dynamodb.Table('sbargery_visitors')
-
     # Get visitor count - takes 6 hours to update
     #visitor_count = table.item_count
 
