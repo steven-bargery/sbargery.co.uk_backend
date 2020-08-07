@@ -3,6 +3,7 @@ import get_visitors
 from unittest import mock
 import os
 
+# set the table name environment variable
 @mock.patch.dict(os.environ, {"dbName": "sbargery_visitor_count"})
 
 class TestGet_Visitors(unittest.TestCase):
