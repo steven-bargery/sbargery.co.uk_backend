@@ -1,10 +1,11 @@
 import boto3
+import os
 
 # Get the service resource.
 dynamodb = boto3.resource('dynamodb')
 
 # Get the table
-table = dynamodb.Table('sbargery_visitor_count')
+table = dynamodb.Table(os.getenv('dbName'))
 
 def lambda_handler(event, context):
     # Get visitor count - takes 6 hours to update
