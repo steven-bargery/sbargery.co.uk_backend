@@ -2,16 +2,16 @@ import json
 import boto3
 import uuid
 import datetime
+import os
 
 # Get the service resource.
 dynamodb = boto3.resource('dynamodb')
 
-# Get the tables
-visitor_table = dynamodb.Table('sbargery_visitors')
-count_table = dynamodb.Table('sbargery_visitor_count')
-
-
 def lambda_handler(event, context):
+    # Get the tables
+    visitor_table = dynamodb.Table(os.environ['dbName_visitors'])
+    count_table = dynamodb.Table(os.environ['dbName'])
+
     # Create random ID
     visitor_id = uuid.uuid4()
 

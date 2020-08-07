@@ -1,6 +1,11 @@
 import unittest
 import create_visitor
 import boto3
+from unittest import mock
+import os
+
+# set the table name environment variable
+@mock.patch.dict(os.environ, {"dbName_visitors": "sbargery_visitors", "dbName": "sbargery_visitor_count"})
 
 class TestCreate_Visitor(unittest.TestCase):
 
