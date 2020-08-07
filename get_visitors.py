@@ -5,6 +5,7 @@ import os
 dynamodb = boto3.resource('dynamodb')
 
 # Get the table
+print(os.getenv("dbName"))
 db_name = os.getenv("dbName")
 table = dynamodb.Table(db_name)
 
