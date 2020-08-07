@@ -5,7 +5,8 @@ import os
 dynamodb = boto3.resource('dynamodb')
 
 # Get the table
-table = dynamodb.Table(os.getenv('dbName'))
+db_name = os.getenv("dbName")
+table = dynamodb.Table(db_name)
 
 def lambda_handler(event, context):
     # Get visitor count - takes 6 hours to update

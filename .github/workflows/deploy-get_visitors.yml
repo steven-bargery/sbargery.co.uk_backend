@@ -34,6 +34,7 @@ jobs:
         aws-region: ${{ secrets.AWS_REGION }}
     - name: Test with pytest
       run: |
+        echo "::set-env name=dbName::sbargery_visitor_count"
         pytest test_get_visitors.py
     - name: AWS Lambda Deploy
       uses: appleboy/lambda-action@master
