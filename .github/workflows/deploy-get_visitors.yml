@@ -18,7 +18,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install flake8 pytest boto3 os
+        pip install flake8 pytest boto3
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Lint with flake8
       run: |
@@ -34,7 +34,6 @@ jobs:
         aws-region: ${{ secrets.AWS_REGION }}
     - name: Test with pytest
       run: |
-        echo "::set-env name=dbName::sbargery_visitor_count"
         pytest test_get_visitors.py
     - name: AWS Lambda Deploy
       uses: appleboy/lambda-action@master
