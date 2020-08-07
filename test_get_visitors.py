@@ -1,5 +1,9 @@
 import unittest
 import get_visitors
+from unittest import mock
+import os
+
+@mock.patch.dict(os.environ, {"dbName": "sbargery_visitor_count"})
 
 class TestGet_Visitors(unittest.TestCase):
 
